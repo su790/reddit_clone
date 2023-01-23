@@ -75,6 +75,7 @@ model Profile {
 model Com {
   id      String @id @default(cuid())
   members User[]
+  ramu    String
 }
 
 model VerificationToken {
