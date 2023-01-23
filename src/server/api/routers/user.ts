@@ -15,10 +15,11 @@ export const userRouter = createTRPCRouter({
         userId: z.string(),
       })
     )
-    .mutation(({ input }) => {
-      prisma.profile.create({
+    .mutation(async ({ input }) => {
+      await prisma.profile.create({
         data: { ...input },
       });
+      return "Created successfully";
     }),
   update: protectedProcedure
     .input(
@@ -31,8 +32,8 @@ export const userRouter = createTRPCRouter({
         userId: z.string(),
       })
     )
-    .mutation(({ input }) => {
-      prisma.profile.update({
+    .mutation(async ({ input }) => {
+      return await prisma.profile.update({
         where: {
           id: input.userId,
         },
