@@ -34,6 +34,10 @@ export const authOptions: NextAuthOptions = {
      * @see https://next-auth.js.org/providers/github
      */
   ],
+  pages: {
+    signIn: "/login",
+    newUser: "/welcome", // New users will be directed here on first sign in (leave the property out if not of interest)
+  },
 };
 
 export default NextAuth(authOptions);
