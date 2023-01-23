@@ -17,3 +17,13 @@ export const prisma =
 if (env.NODE_ENV !== "production") {
   global.prisma = prisma;
 }
+
+prisma.$use(async (params, next) => {
+  if (params.action == "create" && params.model == "Account") {
+    delete params.args.data["not-before-policy"];
+  }
+
+  const result = await next(params);
+  // See results here
+  return result;
+});
