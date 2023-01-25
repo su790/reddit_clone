@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+  .icon {
+    @apply h-5 w-5 stroke-[1.3px] text-gray-600;
+  }
+  .input {
+    @apply rounded-md border border-gray-300 bg-gray-100/50 p-2  text-base text-gray-800 caret-gray-800 outline-none;
+  }
+  .required {
+    @apply relative after:absolute after:top-1  after:text-xs after:text-red-500 after:content-['*'];
+  }
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
