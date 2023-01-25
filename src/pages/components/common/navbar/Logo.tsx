@@ -4,13 +4,12 @@ import React from "react";
 function Logo() {
   return (
     <Link href="/">
-      <div className="flex items-center gap-2">
+      <div className="inline-flex items-center gap-2">
         {" "}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
-          height="32"
-          className="_1O4jTk-dZ-VIxsCuYB6OR8 "
+          className="h-6 sm:h-7 md:h-8"
         >
           <g>
             <circle fill="#FF4500" cx="10" cy="10" r="10"></circle>
@@ -20,7 +19,11 @@ function Logo() {
             ></path>
           </g>
         </svg>
-        <svg height="18" viewBox="0 0 57 18" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          viewBox="0 0 57 18"
+          className="h-4 sm:h-5"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <g fill="#1c1c1c">
             <path d="M54.63,16.52V7.68h1a1,1,0,0,0,1.09-1V6.65a1,1,0,0,0-.93-1.12H54.63V3.88a1.23,1.23,0,0,0-1.12-1.23,1.2,1.2,0,0,0-1.27,1.11V5.55h-1a1,1,0,0,0-1.09,1v.07a1,1,0,0,0,.93,1.12h1.13v8.81a1.19,1.19,0,0,0,1.19,1.19h0a1.19,1.19,0,0,0,1.25-1.12A.17.17,0,0,0,54.63,16.52Z"></path>
             <circle fill="#FF4500" cx="47.26" cy="3.44" r="2.12"></circle>
