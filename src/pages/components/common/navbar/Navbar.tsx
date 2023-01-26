@@ -1,5 +1,4 @@
 import React from "react";
-import { IconMenu2 } from "@tabler/icons";
 import Logo from "./Logo";
 import ProfileDropdown from "../dropdown/ProfileDropdown";
 function Navbar() {

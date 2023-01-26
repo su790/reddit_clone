@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import DropdownBtn from "./DropdownBtn";
 import {
@@ -11,13 +11,22 @@ import Avatar from "../navbar/Avatar";
 import SwitchBtn from "../button/Switch";
 import DropdownItem from "./DropdownItem";
 import Link from "next/link";
-const links = [
-  { href: "/account-settings", label: "Account settings" },
-  { href: "/support", label: "Support" },
-  { href: "/license", label: "License" },
-  { href: "/sign-out", label: "Sign out" },
-];
+import { useThemeStore } from "@/src/stores/useThemeStore";
+
 function ProfileDropdown() {
+  const { currentTheme, setTheme } = useThemeStore((state) => state);
+  const [themeSwitchEnabled, setThemeSwitchEnabled] = useState(
+    currentTheme === "dark"
+  );
+  useEffect(() => {
+    if (currentTheme === "dark") {
+      setThemeSwitchEnabled(true);
+    } else {
+      setThemeSwitchEnabled(false);
+    }
+  }, [currentTheme]);
+
+  console.log(currentTheme, themeSwitchEnabled);
   return (
     <Menu as={"div"} className="relative">
       <Menu.Button>
@@ -101,11 +110,15 @@ function ProfileDropdown() {
             <Menu.Item>
               {({ active }) => (
                 <DropdownItem isActive={active}>
-                  <h4 className="text-sm font-medium">Dark Mode</h4>
+                  <h4 className="text-sm font-medium">Theme: {currentTheme}</h4>
                   <SwitchBtn
-                    onChange={() => ({})}
+                    onChange={() =>
+                      currentTheme === "light"
+                        ? setTheme("dark")
+                        : setTheme("light")
+                    }
                     srText="Toggle dark mode"
-                    checked={false}
+                    checked={themeSwitchEnabled}
                   />
                 </DropdownItem>
               )}

@@ -7,14 +7,14 @@ interface DropdownItemProps {
 
 function DropdownItem({ isActive = false, children }: DropdownItemProps) {
   return (
-    <button
-      type="button"
+    <div
+      // type="button"
       className={`flex w-full items-center gap-3 py-3 pl-12 pr-2 text-start hover:bg-gray-100  ${
         isActive ? "bg-gray-200 " : "bg-white "
       }`}
     >
       {children}
-    </button>
+    </div>
   );
 }
 
