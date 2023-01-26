@@ -1,7 +1,7 @@
 import { type AppType } from "next/app";
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-
+import NextProgress from "next-progress";
 import { api } from "../utils/api";
 
 import "../styles/globals.css";
@@ -25,6 +25,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
           {root}
         </style>
       }
+      <NextProgress options={{ showSpinner: false, color: "#ff4500" }} />
       <Component {...pageProps} />
     </SessionProvider>
   );
