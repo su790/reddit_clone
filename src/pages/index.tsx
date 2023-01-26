@@ -1,4 +1,5 @@
 import { type NextPage } from "next";
+import { signIn } from "next-auth/react";
 import Head from "next/head";
 import Navbar from "../components/common/navbar/Navbar";
 
@@ -11,8 +12,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-
-      <div className="apply-bg apply-border w-18 m-3 h-12"></div>
+      <button type="button" onClick={() => void signIn()}>
+        Sign In
+      </button>
     </>
   );
 };
