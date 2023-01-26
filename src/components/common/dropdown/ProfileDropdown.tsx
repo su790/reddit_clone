@@ -26,7 +26,6 @@ function ProfileDropdown() {
     }
   }, [currentTheme]);
 
-  console.log(currentTheme, themeSwitchEnabled);
   return (
     <Menu as={"div"} className="relative">
       <Menu.Button>

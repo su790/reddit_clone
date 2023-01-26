@@ -38,6 +38,20 @@ export const authOptions: NextAuthOptions = {
     signIn: "/login",
     newUser: "/welcome", // New users will be directed here on first sign in (leave the property out if not of interest)
   },
+  events: {
+    async signIn(message) {
+      console.log(message);
+      if (message.isNewUser === true) {
+        await prisma.profile.create({
+          data: {
+            userId: message.user.id!,
+            username: message.user.email!,
+            email: message.user.email!,
+          },
+        });
+      }
+    },
+  },
 };
 
 export default NextAuth(authOptions);
