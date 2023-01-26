@@ -33,10 +33,12 @@ function ProfileDropdown() {
         <DropdownBtn className="gap-2">
           <Avatar isOnline={true} />
           <div className="mr-12 hidden flex-col md:flex">
-            <h4 className="text-xs font-medium">Jung_Bikrant</h4>
+            <h4 className="text-xs font-medium dark:text-gray-300">
+              Jung_Bikrant
+            </h4>
             <div className="flex items-center">
-              <IconFlower className="icon h-3 w-3 text-red-900" />
-              <span className="text-xs font-medium text-gray-700">
+              <IconFlower className="icon h-3 w-3 text-primary-700 dark:text-primary-600" />
+              <span className="text-xs font-medium text-gray-700 dark:text-gray-400">
                 {1} karma
               </span>
             </div>
@@ -55,7 +57,7 @@ function ProfileDropdown() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 mt-3 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="flex items-center gap-2 px-3 py-2">
             <IconUserCircle className="icon h-6 w-6" />
             <h5 className="text-sm font-medium text-gray-600">My Stuff</h5>
@@ -110,12 +112,12 @@ function ProfileDropdown() {
             <Menu.Item>
               {({ active }) => (
                 <DropdownItem isActive={active}>
-                  <h4 className="text-sm font-medium">Theme: {currentTheme}</h4>
+                  <h4 className="text-sm font-medium">Dark Theme</h4>
                   <SwitchBtn
                     onChange={() =>
-                      currentTheme === "light"
-                        ? setTheme("dark")
-                        : setTheme("light")
+                      currentTheme === "dark"
+                        ? setTheme("light")
+                        : setTheme("dark")
                     }
                     srText="Toggle dark mode"
                     checked={themeSwitchEnabled}

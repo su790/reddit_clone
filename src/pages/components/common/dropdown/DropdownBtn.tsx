@@ -7,7 +7,7 @@ interface DropdownBtnProps {
 function DropdownBtn({ children, className }: DropdownBtnProps) {
   return (
     <div
-      className={`flex items-center rounded border border-white py-1 px-2 hover:border-gray-200  active:border-gray-200 ${
+      className={`flex items-center rounded border border-white py-1 px-2 hover:border-gray-200 active:border-gray-200 dark:border-gray-900  dark:hover:border-gray-800 ${
         className || ""
       }`}
     >

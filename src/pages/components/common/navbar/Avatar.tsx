@@ -4,9 +4,9 @@ interface AvatarProps {
 }
 function Avatar({ isOnline }: AvatarProps) {
   return (
-    <div className="relative rounded bg-gray-200">
+    <div className="relative rounded bg-gray-200 dark:bg-gray-400">
       <svg
-        className="h-6 text-white"
+        className="h-6 text-white dark:text-gray-200"
         viewBox="0 0 320 320"
         xmlns="http://www.w3.org/2000/svg"
         fill="white"
@@ -34,7 +34,7 @@ function Avatar({ isOnline }: AvatarProps) {
         </g>
       </svg>
       {isOnline && (
-        <div className="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring-2 ring-white" />
+        <div className="absolute right-0 bottom-0 h-2 w-2 rounded-full bg-green-400 ring-2 ring-white dark:ring-gray-900" />
       )}
     </div>
   );

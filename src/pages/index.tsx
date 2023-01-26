@@ -11,6 +11,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
+
+      <div className="apply-bg apply-border w-18 m-3 h-12"></div>
     </>
   );
 };
