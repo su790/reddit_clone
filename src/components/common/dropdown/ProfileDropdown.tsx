@@ -32,12 +32,10 @@ function ProfileDropdown() {
         <DropdownBtn className="gap-2">
           <Avatar isOnline={true} />
           <div className="mr-12 hidden flex-col md:flex">
-            <h4 className="text-xs font-medium dark:text-gray-300">
-              Jung_Bikrant
-            </h4>
+            <h4 className="heading-text">Jung_Bikrant</h4>
             <div className="flex items-center">
               <IconFlower className="icon h-3 w-3 text-primary-700 dark:text-primary-600" />
-              <span className="text-xs font-medium text-gray-700 dark:text-gray-400">
+              <span className="heading-text text-gray-700 dark:text-gray-400">
                 {1} karma
               </span>
             </div>
@@ -110,7 +108,14 @@ function ProfileDropdown() {
             </div>
             <Menu.Item>
               {({ active }) => (
-                <DropdownItem isActive={active}>
+                <DropdownItem
+                  isActive={active}
+                  onClick={() =>
+                    currentTheme === "dark"
+                      ? setTheme("light")
+                      : setTheme("dark")
+                  }
+                >
                   <h4 className="text-sm font-medium">Dark Theme</h4>
                   <SwitchBtn
                     onChange={() =>

@@ -68,8 +68,9 @@ model Profile {
   allow_follow       Boolean @default(true)
   profile_visibility Boolean @default(true)
   about              String? @default("how are you")
-  userId             String  @unique
-  User               User    @relation(fields: [userId], references: [id])
+
+  userId String @unique
+  User   User   @relation(fields: [userId], references: [id])
 }
 
 model VerificationToken {
