@@ -10,9 +10,11 @@ function SubmitPage() {
     <div className="grid grid-cols-3 gap-8">
       <div className="col-span-2 py-8">
         <div className="flex flex-col gap-4">
-          <div className="flex items-center justify-between border-b border-white pb-3 ">
+          <div className="flex items-center justify-between border-b border-white pb-3 dark:border-neutral-600 ">
             <h2 className="heading-text text-lg">Create a post</h2>
-            <button type="button">Draft</button>
+            <button type="button" className="heading-text">
+              DRAFTS
+            </button>
           </div>
 
           <div className="w-72">

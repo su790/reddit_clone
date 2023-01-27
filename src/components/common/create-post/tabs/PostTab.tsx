@@ -1,7 +1,23 @@
+import { IconFileText } from "@tabler/icons";
 import React from "react";
+import TabLayout from "./TabLayout";
 
-function PostTab() {
-  return <div>PostTab</div>;
+function PostTab({
+  selectedIndex,
+  currentIndex,
+}: {
+  selectedIndex: number;
+  currentIndex: number;
+}) {
+  return (
+    <TabLayout
+      selectedIndex={selectedIndex}
+      currentIndex={currentIndex}
+      text="Post"
+    >
+      <IconFileText className="create-post-icon" />
+    </TabLayout>
+  );
 }
 
 export default PostTab;

@@ -35,7 +35,7 @@ export default function SearchBox({
                 open,
               "w-64 rounded-3xl border bg-neutral-100 hover:border-blue-400 hover:bg-white dark:border-gray-900 dark:bg-neutral-800 dark:focus-within:border-gray-600 dark:focus-within:bg-neutral-900 dark:hover:border-gray-600 dark:hover:bg-neutral-900":
                 placement === "navbar",
-              "rounded-lg  bg-white py-1 ring-white focus-within:ring-1":
+              "apply-bg  apply-border rounded-lg py-1 ring-white focus-within:ring-1 dark:ring-neutral-600":
                 placement === "create-post",
             },
           ])}
@@ -68,14 +68,14 @@ export default function SearchBox({
           </div>
           <Combobox.Options
             className={
-              "absolute z-10 -mt-[0.10rem] max-h-96  w-full overflow-auto rounded-bl-md rounded-br-md border border-l-0 border-r-0 border-b-0 border-t-2 bg-white py-2 shadow-lg ring-1 ring-white dark:border-neutral-700 dark:bg-neutral-900"
+              "absolute z-10 -mt-[0.10rem] max-h-96 w-full overflow-auto rounded-bl-md rounded-br-md border border-l-0 border-r-0 border-b-0 border-t-2 bg-white py-2 shadow-lg ring-1 ring-white dark:border-neutral-700 dark:bg-neutral-900 dark:ring-0"
             }
           >
             {placement === "create-post" ? (
               <>
                 <div className="mb-1 flex  items-center justify-between px-3">
                   <h3 className="heading-text">Joined Communities</h3>
-                  <button className="heading-text rounded-full p-1 px-2 text-secondary-800 hover:bg-neutral-200">
+                  <button className="heading-text rounded-full p-1 px-2 text-secondary-800 hover:bg-neutral-200 dark:hover:bg-neutral-700">
                     Create
                   </button>
                 </div>

@@ -1,7 +1,23 @@
+import { IconPhoto } from "@tabler/icons";
 import React from "react";
+import TabLayout from "./TabLayout";
 
-function ImageVideoTab() {
-  return <div>ImageVideoTab</div>;
+function ImageVideoTab({
+  selectedIndex,
+  currentIndex,
+}: {
+  selectedIndex: number;
+  currentIndex: number;
+}) {
+  return (
+    <TabLayout
+      text="Images & Video"
+      selectedIndex={selectedIndex}
+      currentIndex={currentIndex}
+    >
+      <IconPhoto className="create-post-icon" />
+    </TabLayout>
+  );
 }
 
 export default ImageVideoTab;
