@@ -8,6 +8,7 @@ import "../styles/globals.css";
 import { root } from "../styles/customFonts";
 import { useThemeStore } from "../stores/useThemeStore";
 import { useEffect } from "react";
+import Navbar from "../components/common/navbar/Navbar";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -25,8 +26,11 @@ const MyApp: AppType<{ session: Session | null }> = ({
           {root}
         </style>
       }
-      <NextProgress options={{ showSpinner: false, color: "#ff4500" }} />
-      <Component {...pageProps} />
+      <NextProgress options={{ showSpinner: true, color: "#ff4500" }} />
+      <Navbar />
+      <div className="px-2 sm:px-4 md:px-12 lg:px-16 xl:px-24">
+        <Component {...pageProps} />
+      </div>
     </SessionProvider>
   );
 };

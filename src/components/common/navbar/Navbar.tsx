@@ -11,7 +11,7 @@ function Navbar() {
           <Logo />
         </div>
         <div className="flex flex-[2_2_0%] items-center justify-between">
-          <SearchBox />
+          <SearchBox placeholder="Search Reddit" placement={"navbar"} />
           <div className="ml-auto mr-4">
             <NavbarItems />
           </div>
