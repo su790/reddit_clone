@@ -5,7 +5,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
 import { env } from "../../../env/server.mjs";
 import { prisma } from "../../../server/db";
-import CustomUsername from "@/src/helpers/createUsername.js";
+import CustomUsername from "@/src/helpers/createUsername";
 
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
@@ -46,7 +46,7 @@ export const authOptions: NextAuthOptions = {
         await prisma.profile.create({
           data: {
             userId: message.user.id!,
-            username:await CustomUsername(message.user.email!),
+            username: await CustomUsername(message.user.email!),
             email: message.user.email!,
           },
         });

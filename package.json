@@ -26,6 +26,9 @@
     "next-progress": "^2.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-textarea-autosize": "^8.4.0",
+    "slate": "^0.88.1",
+    "slate-react": "^0.88.2",
     "superjson": "1.9.1",
     "zod": "^3.20.2",
     "zustand": "^4.3.2"
