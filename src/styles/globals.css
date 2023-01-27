@@ -20,6 +20,9 @@
   .heading-text {
     @apply text-xs font-medium text-gray-800 dark:text-gray-300;
   }
+  .link {
+    @apply text-secondary-600;
+  }
 }
 
 @layer base {
