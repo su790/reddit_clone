@@ -3,7 +3,12 @@ import Logo from "./Logo";
 import ProfileDropdown from "../dropdown/ProfileDropdown";
 import SearchBox from "../form/SearchBox";
 import NavbarItems from "./NavbarItems";
+import { signIn, useSession } from "next-auth/react";
+import Button from "../button/Button";
+import { Icon123 } from "@tabler/icons";
 function Navbar() {
+  const { data: session } = useSession();
+
   return (
     <>
       <div className="apply-bg apply-border flex items-center justify-between border-b  p-2 ">
@@ -15,7 +20,17 @@ function Navbar() {
           <div className="ml-auto mr-4">
             <NavbarItems />
           </div>
-          <ProfileDropdown />
+          {session ? (
+            <ProfileDropdown />
+          ) : (
+            <Button
+              intent={"secondary"}
+              // variant="ghost"
+              onClick={() => void signIn("google")}
+            >
+              <p>Login</p>
+            </Button>
+          )}
         </div>
         {/* <div className="flex flex-col"></div> */}
       </div>

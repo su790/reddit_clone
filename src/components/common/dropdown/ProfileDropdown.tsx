@@ -5,15 +5,19 @@ import {
   IconChevronDown,
   IconEye,
   IconFlower,
+  IconLogout,
   IconUserCircle,
+  TablerIcon,
 } from "@tabler/icons";
-import Avatar from "../navbar/Avatar";
+import DefaultAvatar from "../navbar/DefaultAvatar";
 import SwitchBtn from "../button/Switch";
 import DropdownItem from "./DropdownItem";
 import Link from "next/link";
 import { useThemeStore } from "@/src/stores/useThemeStore";
+import { signOut, useSession } from "next-auth/react";
 
 function ProfileDropdown() {
+  const { data: session } = useSession();
   const { currentTheme, setTheme } = useThemeStore((state) => state);
   const [themeSwitchEnabled, setThemeSwitchEnabled] = useState(
     currentTheme === "dark"
@@ -30,9 +34,9 @@ function ProfileDropdown() {
     <Menu as={"div"} className="relative">
       <Menu.Button>
         <DropdownBtn className="gap-2">
-          <Avatar isOnline={true} />
-          <div className="mr-12 hidden flex-col md:flex">
-            <h4 className="heading-text">Jung_Bikrant</h4>
+          <DefaultAvatar isOnline={true} />
+          <div className="mr-6 hidden flex-col md:flex">
+            <h4 className="heading-text">{session?.user?.name}</h4>
             <div className="flex items-center">
               <IconFlower className="icon h-3 w-3 text-primary-700 dark:text-primary-600" />
               <span className="heading-text text-gray-700 dark:text-gray-400">
@@ -55,10 +59,9 @@ function ProfileDropdown() {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items className="absolute right-0 mt-3 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-          <div className="flex items-center gap-2 px-3 py-2">
-            <IconUserCircle className="icon h-6 w-6" />
-            <h5 className="text-sm font-medium text-gray-600">My Stuff</h5>
-          </div>
+          <DropdownTitle title="My Stuff">
+            <IconUserCircle className="icon h-6 w-6 text-gray-500" />
+          </DropdownTitle>
           <div className="">
             <Menu.Item>
               {({ active }) => (
@@ -100,12 +103,9 @@ function ProfileDropdown() {
               )}
             </Menu.Item>
             <hr />
-            <div className="flex items-center gap-2 px-3 py-2">
-              <IconEye className="icon h-6 w-6" />
-              <h5 className="text-sm font-medium text-gray-600">
-                View Options
-              </h5>
-            </div>
+            <DropdownTitle title="View Options">
+              <IconEye className="icon h-6 w-6 text-gray-400" />
+            </DropdownTitle>
             <Menu.Item>
               {({ active }) => (
                 <DropdownItem
@@ -130,10 +130,34 @@ function ProfileDropdown() {
               )}
             </Menu.Item>
           </div>
+          <hr />
+          <Menu.Item>
+            {({ active }) => (
+              <DropdownItem
+                isActive={active}
+                onClick={() => void signOut()}
+                className="gap-1 pl-4"
+              >
+                <IconLogout className="icon" />
+                <h4 className="text-sm font-medium">Sign out</h4>
+              </DropdownItem>
+            )}
+          </Menu.Item>
         </Menu.Items>
       </Transition>
     </Menu>
   );
 }
-
+interface DropdownTitleProps {
+  title: string;
+  children: React.ReactNode;
+}
+function DropdownTitle({ title, children }: DropdownTitleProps) {
+  return (
+    <div className="flex items-center gap-2 px-3 py-2">
+      {children}
+      <h5 className="text-sm font-medium text-gray-500">{title}</h5>
+    </div>
+  );
+}
 export default ProfileDropdown;

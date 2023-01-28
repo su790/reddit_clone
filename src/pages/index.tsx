@@ -1,9 +1,5 @@
-import { type NextPage } from "next";
-import { signIn } from "next-auth/react";
 import Head from "next/head";
-import Navbar from "../components/common/navbar/Navbar";
-
-const Home: NextPage = () => {
+function HomePage() {
   return (
     <>
       <Head>
@@ -12,9 +8,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="apply-bg apply-border w-18 m-3 h-12"></div>
-      <button onClick={() => void signIn("google")}>Sign in</button>
     </>
   );
-};
+}
 
-export default Home;
+export default HomePage;

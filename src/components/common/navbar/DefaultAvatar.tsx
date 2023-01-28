@@ -2,7 +2,7 @@ import React from "react";
 interface AvatarProps {
   isOnline: boolean;
 }
-function Avatar({ isOnline }: AvatarProps) {
+function DefaultAvatar({ isOnline }: AvatarProps) {
   return (
     <div className="relative rounded bg-gray-200 dark:bg-gray-400">
       <svg
@@ -40,4 +40,4 @@ function Avatar({ isOnline }: AvatarProps) {
   );
 }
 
-export default Avatar;
+export default DefaultAvatar;
