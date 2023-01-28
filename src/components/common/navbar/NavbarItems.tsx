@@ -22,7 +22,7 @@ function NavbarItems() {
         <IconBell className="icon h-6 w-6 stroke-[1px]" />
       </IconButton>
 
-      <IconButton title="Create" href="/">
+      <IconButton title="Create" href="/submit">
         <IconPlus className="icon h-6 w-6 stroke-[1px]" />
       </IconButton>
 

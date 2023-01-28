@@ -6,9 +6,9 @@ import NavbarItems from "./NavbarItems";
 import { signIn, useSession } from "next-auth/react";
 import Button from "../button/Button";
 import { Icon123 } from "@tabler/icons";
+import { useUserStore } from "@/src/stores/useUserStore";
 function Navbar() {
   const { data: session } = useSession();
-
   return (
     <>
       <div className="apply-bg apply-border flex items-center justify-between border-b  p-2 ">

@@ -15,6 +15,7 @@ import DropdownItem from "./DropdownItem";
 import Link from "next/link";
 import { useThemeStore } from "@/src/stores/useThemeStore";
 import { signOut, useSession } from "next-auth/react";
+import { useUserStore } from "@/src/stores/useUserStore";
 
 function ProfileDropdown() {
   const { data: session } = useSession();

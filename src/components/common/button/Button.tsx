@@ -26,7 +26,6 @@ const Button = ({
 
   ...rest
 }: ButtonProps) => {
-  console.log("Sizes", size);
   return (
     <button
       className={buttonStyles({
