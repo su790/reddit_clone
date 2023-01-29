@@ -12,11 +12,12 @@ import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
 import SwitchBtn from "../button/Switch";
+import SearchBox from "../form/SearchBox";
 import DefaultAvatar from "../navbar/DefaultAvatar";
 import DropdownBtn from "./DropdownBtn";
 import DropdownItem from "./DropdownItem";
 
-function ProfileDropdown({ userData }: { userData: Session }) {
+function ProfileDropdown({ userData }: { userData: Session | null }) {
   const { currentTheme, setTheme } = useThemeStore((state) => state);
   const [themeSwitchEnabled, setThemeSwitchEnabled] = useState(
     currentTheme === "dark"
@@ -34,8 +35,8 @@ function ProfileDropdown({ userData }: { userData: Session }) {
       <Menu.Button>
         <DropdownBtn className="gap-2">
           <DefaultAvatar isOnline={true} />
-          <div className="mr-6 hidden flex-col md:flex">
-            <h4 className="heading-text">{userData.user?.name}</h4>
+          <div className="mr-6 hidden flex-col lg:flex">
+            <h4 className="heading-text">{userData?.user?.name}</h4>
             <div className="flex items-center">
               <IconFlower className="icon h-3 w-3 text-primary-700 dark:text-primary-600" />
               <span className="heading-text text-gray-700 dark:text-gray-400">
@@ -57,7 +58,19 @@ function ProfileDropdown({ userData }: { userData: Session }) {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 mt-3 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 mt-3 w-screen origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:w-56">
+          <div className="sm:hidden">
+            <Menu.Item>
+              {({ active }) => (
+                <DropdownItem isActive={active} className="pl-11">
+                  <SearchBox
+                    placeholder="Search Reddit..."
+                    placement="navbar"
+                  />
+                </DropdownItem>
+              )}
+            </Menu.Item>
+          </div>
           <DropdownTitle title="My Stuff">
             <IconUserCircle className="icon h-6 w-6 text-gray-500" />
           </DropdownTitle>

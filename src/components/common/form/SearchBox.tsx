@@ -2,7 +2,7 @@ import { Combobox } from "@headlessui/react";
 import { IconBackspace, IconSearch } from "@tabler/icons";
 import clsx from "clsx";
 import Image from "next/legacy/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import RedditIcon from "../icons/RedditIcon";
 
 const people = [
@@ -22,6 +22,7 @@ export default function SearchBox({
 }: SearchBoxProps) {
   const [selected, setSelected] = useState(people[0]);
   const [queryWord, setQueryWord] = useState("");
+  const comboBoxInput = useRef<HTMLInputElement>(null);
 
   return (
     <Combobox as="div" value={selected} onChange={setSelected}>
@@ -31,7 +32,7 @@ export default function SearchBox({
             "relative",
 
             {
-              "rounded-3xl  rounded-bl-none rounded-br-none border-b-white focus-within:border-b-white hover:border-b-white focus:border-b-white ":
+              "rounded-3xl rounded-bl-none rounded-br-none border-b-white focus-within:border-b-white hover:border-b-white focus:border-b-white ":
                 open,
               "w-64 rounded-3xl border bg-neutral-100 hover:border-blue-400 hover:bg-white dark:border-gray-900 dark:bg-neutral-800 dark:focus-within:border-gray-600 dark:focus-within:bg-neutral-900 dark:hover:border-gray-600 dark:hover:bg-neutral-900":
                 placement === "navbar",
@@ -57,6 +58,8 @@ export default function SearchBox({
               <RedditIcon />
             )}
             <Combobox.Input
+              as="input"
+              ref={comboBoxInput}
               className={
                 "input w-full border border-none bg-transparent text-sm focus:ring-0"
               }

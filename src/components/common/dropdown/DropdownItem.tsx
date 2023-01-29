@@ -4,7 +4,7 @@ interface DropdownItemProps {
   isActive?: boolean;
   children: React.ReactNode;
   className?: string;
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 function DropdownItem({
@@ -14,7 +14,8 @@ function DropdownItem({
   onClick,
 }: DropdownItemProps) {
   return (
-    <div
+    <button
+      type="button"
       onClick={onClick}
       // type="button"
       className={`flex w-full cursor-pointer items-center gap-3 py-3 pl-12 pr-2 text-start hover:bg-gray-100  ${
@@ -22,7 +23,7 @@ function DropdownItem({
       } ${className || ""}`}
     >
       {children}
-    </div>
+    </button>
   );
 }
 

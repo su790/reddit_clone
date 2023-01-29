@@ -13,22 +13,26 @@ function Navbar() {
         <div className="flex-1">
           <Logo />
         </div>
-        <div className="flex flex-[2_2_0%] items-center justify-between">
-          <SearchBox placeholder="Search Reddit" placement={"navbar"} />
-          <div className="ml-auto mr-4">
+        <div className="flex flex-[3_3_0%] items-center justify-between ">
+          <div className="hidden sm:block">
+            <SearchBox placeholder="Search Reddit" placement={"navbar"} />
+          </div>
+          <div className="ml-auto mr-4 hidden lg:block">
             <NavbarItems />
           </div>
-          {session ? (
-            <ProfileDropdown userData={session} />
-          ) : (
-            <Button
-              intent={"secondary"}
-              // variant="ghost"
-              onClick={() => void signIn("google")}
-            >
-              <p>Login</p>
-            </Button>
-          )}
+          <div className="ml-auto lg:ml-0">
+            {!session ? (
+              <ProfileDropdown userData={session} />
+            ) : (
+              <Button
+                intent={"secondary"}
+                // variant="ghost"
+                onClick={() => void signIn("google")}
+              >
+                <p>Login</p>
+              </Button>
+            )}
+          </div>
         </div>
         {/* <div className="flex flex-col"></div> */}
       </div>
