@@ -15,26 +15,27 @@ interface SearchBoxProps {
   placement?: "navbar" | "create-post";
   width?: string;
 }
-export default function SearchBox({
-  placeholder,
-  placement,
-  width,
-}: SearchBoxProps) {
+export default function SearchBox({ placeholder, placement }: SearchBoxProps) {
   const [selected, setSelected] = useState(people[0]);
   const [queryWord, setQueryWord] = useState("");
   const comboBoxInput = useRef<HTMLInputElement>(null);
 
   return (
-    <Combobox as="div" value={selected} onChange={setSelected}>
+    <Combobox
+      as="div"
+      className={"max-w-xs"}
+      value={selected}
+      onChange={setSelected}
+    >
       {({ open }) => (
         <div
           className={clsx([
             "relative",
 
             {
-              "rounded-3xl rounded-bl-none rounded-br-none border-b-white focus-within:border-b-white hover:border-b-white focus:border-b-white ":
+              " rounded-3xl rounded-bl-none rounded-br-none border-b-white focus-within:border-b-white hover:border-b-white focus:border-b-white ":
                 open,
-              "w-64 rounded-3xl border bg-neutral-100 hover:border-blue-400 hover:bg-white dark:border-gray-900 dark:bg-neutral-800 dark:focus-within:border-gray-600 dark:focus-within:bg-neutral-900 dark:hover:border-gray-600 dark:hover:bg-neutral-900":
+              "max-w-xl rounded-3xl border bg-neutral-100 hover:border-blue-400 hover:bg-white dark:border-gray-900 dark:bg-neutral-800 dark:focus-within:border-gray-600 dark:focus-within:bg-neutral-900 dark:hover:border-gray-600 dark:hover:bg-neutral-900":
                 placement === "navbar",
               "apply-bg  apply-border rounded-lg py-1 ring-white focus-within:ring-1 dark:ring-neutral-600":
                 placement === "create-post",

@@ -1,7 +1,6 @@
-import { type Session } from "next-auth";
 import { signIn, useSession } from "next-auth/react";
 import Button from "../button/Button";
-import ProfileDropdown from "../dropdown/ProfileDropdown";
+import PopOver from "../dropdown/ProfileDropdown";
 import SearchBox from "../form/SearchBox";
 import Logo from "./Logo";
 import NavbarItems from "./NavbarItems";
@@ -21,8 +20,8 @@ function Navbar() {
             <NavbarItems />
           </div>
           <div className="ml-auto lg:ml-0">
-            {!session ? (
-              <ProfileDropdown userData={session} />
+            {session ? (
+              <PopOver userData={session} />
             ) : (
               <Button
                 intent={"secondary"}

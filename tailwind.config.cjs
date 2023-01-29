@@ -53,6 +53,9 @@ module.exports = {
         sans: "var(--sans-font)",
         serif: "var(--serif-font)",
       },
+      boxShadow: {
+        focus: "0px 0px 2px 3px #8ec2ed",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],

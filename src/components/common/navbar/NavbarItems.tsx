@@ -5,7 +5,6 @@ import {
   IconPlus,
   IconSpeakerphone,
 } from "@tabler/icons";
-import Link from "next/link";
 import Button from "../button/Button";
 import IconButton from "../button/IconButton";
 
@@ -26,7 +25,7 @@ function NavbarItems() {
         <IconPlus className="icon h-6 w-6 stroke-[1px]" />
       </IconButton>
 
-      <Button intent="primary">
+      <Button intent="neutral">
         <IconSpeakerphone className="h-5 w-5" />
         Advertise
       </Button>

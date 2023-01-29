@@ -1,12 +1,8 @@
-import { GetServerSideProps } from "next";
 import React from "react";
-import { text } from "stream/consumers";
 import MainPostBox from "../components/common/create-post/MainPostBox";
 import SearchBox from "../components/common/form/SearchBox";
 import RedditHappyIcon from "../components/common/icons/RedditHappyIcon";
 import { postingTips } from "../data/PostingTips";
-import { getServerAuthSession } from "../server/auth";
-import { useUserStore } from "../stores/useUserStore";
 
 function SubmitPage() {
   return (
