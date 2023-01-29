@@ -9,11 +9,10 @@ import { root } from "../styles/customFonts";
 import { useThemeStore } from "../stores/useThemeStore";
 import { useEffect } from "react";
 import Navbar from "../components/common/navbar/Navbar";
-import { PagePropsTypes } from "../types/pageProps.types";
 
-const MyApp: AppType<{ session: Session | null } & PagePropsTypes> = ({
+const MyApp: AppType<{ session: Session | null }> = ({
   Component,
-  pageProps: { session, userData, ...pageProps },
+  pageProps: { session, ...pageProps },
 }) => {
   const currentTheme = useThemeStore((state) => state.currentTheme);
   useEffect(() => {
@@ -31,7 +30,7 @@ const MyApp: AppType<{ session: Session | null } & PagePropsTypes> = ({
       <NextProgress options={{ showSpinner: false, color: "#ff4500" }} />
       {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        <Navbar userData={userData} />
+        <Navbar />
       }
       <div className="px-2 sm:px-4 md:px-12 lg:px-16 xl:px-24">
         <Component {...pageProps} />

@@ -16,7 +16,7 @@ import DefaultAvatar from "../navbar/DefaultAvatar";
 import DropdownBtn from "./DropdownBtn";
 import DropdownItem from "./DropdownItem";
 
-function ProfileDropdown({ userData }: { userData: Session | null }) {
+function ProfileDropdown({ userData }: { userData: Session }) {
   const { currentTheme, setTheme } = useThemeStore((state) => state);
   const [themeSwitchEnabled, setThemeSwitchEnabled] = useState(
     currentTheme === "dark"
@@ -35,7 +35,7 @@ function ProfileDropdown({ userData }: { userData: Session | null }) {
         <DropdownBtn className="gap-2">
           <DefaultAvatar isOnline={true} />
           <div className="mr-6 hidden flex-col md:flex">
-            <h4 className="heading-text">{userData?.user?.name}</h4>
+            <h4 className="heading-text">{userData.user?.name}</h4>
             <div className="flex items-center">
               <IconFlower className="icon h-3 w-3 text-primary-700 dark:text-primary-600" />
               <span className="heading-text text-gray-700 dark:text-gray-400">

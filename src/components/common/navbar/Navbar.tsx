@@ -1,11 +1,12 @@
 import { type Session } from "next-auth";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import Button from "../button/Button";
 import ProfileDropdown from "../dropdown/ProfileDropdown";
 import SearchBox from "../form/SearchBox";
 import Logo from "./Logo";
 import NavbarItems from "./NavbarItems";
-function Navbar({ userData }: { userData: Session | null }) {
+function Navbar() {
+  const { data: session } = useSession();
   return (
     <>
       <div className="apply-bg apply-border flex items-center justify-between border-b  p-2 ">
@@ -17,8 +18,8 @@ function Navbar({ userData }: { userData: Session | null }) {
           <div className="ml-auto mr-4">
             <NavbarItems />
           </div>
-          {userData ? (
-            <ProfileDropdown userData={userData} />
+          {session ? (
+            <ProfileDropdown userData={session} />
           ) : (
             <Button
               intent={"secondary"}

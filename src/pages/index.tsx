@@ -1,6 +1,4 @@
-import { type GetServerSideProps } from "next";
 import Head from "next/head";
-import getServerSession from "../helpers/getServerSession";
 
 function HomePage() {
   return (
@@ -13,17 +11,5 @@ function HomePage() {
     </>
   );
 }
-export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-  return {
-    props: {
-      userData: { ...(await getServerSession({ req, res })).props.userData }, // Return userData here
-
-      // Return other props
-      hello: {
-        name: "Hello world",
-      },
-    },
-  };
-};
 
 export default HomePage;
