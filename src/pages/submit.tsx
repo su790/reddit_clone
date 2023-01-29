@@ -2,12 +2,13 @@ import React from "react";
 import MainPostBox from "../components/common/create-post/MainPostBox";
 import SearchBox from "../components/common/form/SearchBox";
 import RedditHappyIcon from "../components/common/icons/RedditHappyIcon";
+import GridLayout from "../components/layouts/GridLayout";
 import { postingTips } from "../data/PostingTips";
 
 function SubmitPage() {
   return (
-    <div className="grid grid-cols-3 gap-8">
-      <div className="col-span-2 py-8">
+    <GridLayout>
+      <div className="col-span-3 max-w-6xl py-8 lg:col-span-2 ">
         <div className="flex flex-col gap-4">
           <div className="flex items-center justify-between border-b border-white pb-3 dark:border-neutral-600 ">
             <h2 className="heading-text text-lg">Create a post</h2>
@@ -25,7 +26,7 @@ function SubmitPage() {
           <MainPostBox />
         </div>
       </div>
-      <div className="h-full">
+      <div className="hidden h-full lg:block">
         <div className="apply-bg apply-border mt-12 flex flex-col p-3 px-5">
           <div className="flex items-center gap-2 border-b pb-2">
             <RedditHappyIcon height="32" />
@@ -45,7 +46,7 @@ function SubmitPage() {
           <span className="link">reddiquette</span>.
         </p>
       </div>
-    </div>
+    </GridLayout>
   );
 }
 

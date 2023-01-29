@@ -5,7 +5,7 @@ import {
   IconEye,
   IconFlower,
   IconUserCircle,
-} from "@tabler/icons";
+} from "@tabler/icons-react";
 import { type Session } from "next-auth";
 import { Fragment, useEffect, useState } from "react";
 import SwitchBtn from "../button/Switch";

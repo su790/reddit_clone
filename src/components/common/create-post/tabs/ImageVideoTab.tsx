@@ -1,4 +1,4 @@
-import { IconPhoto } from "@tabler/icons";
+import { IconPhoto } from "@tabler/icons-react";
 import React from "react";
 import TabLayout from "./TabLayout";
 

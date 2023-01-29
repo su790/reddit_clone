@@ -1,4 +1,3 @@
-import { IconBell } from "@tabler/icons";
 import Link from "next/link";
 import React from "react";
 interface IconButtonProps {

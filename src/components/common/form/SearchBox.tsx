@@ -1,5 +1,5 @@
 import { Combobox } from "@headlessui/react";
-import { IconBackspace, IconSearch } from "@tabler/icons";
+import { IconBackspace, IconSearch } from "@tabler/icons-react";
 import clsx from "clsx";
 import Image from "next/legacy/image";
 import { useRef, useState } from "react";

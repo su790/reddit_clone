@@ -32,7 +32,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         <Navbar />
       }
-      <div className="px-2 sm:px-4 md:px-12 lg:px-16 xl:px-24">
+      <div className="px-4 sm:px-8 md:px-24 lg:px-28 xl:px-36">
         <Component {...pageProps} />
       </div>
     </SessionProvider>

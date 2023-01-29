@@ -1,4 +1,4 @@
-import { IconFileText } from "@tabler/icons";
+import { IconFileText } from "@tabler/icons-react";
 import React from "react";
 import TabLayout from "./TabLayout";
 

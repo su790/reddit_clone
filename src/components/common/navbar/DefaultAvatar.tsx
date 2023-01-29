@@ -1,12 +1,26 @@
-import React from "react";
-interface AvatarProps {
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+import clsx from "clsx";
+import React, { HTMLAttributes } from "react";
+interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
   isOnline: boolean;
+  rounded?: "full" | "normal";
 }
-function DefaultAvatar({ isOnline }: AvatarProps) {
+function DefaultAvatar({
+  isOnline,
+  rounded = "normal",
+  className,
+  ...rest
+}: AvatarProps) {
   return (
-    <div className="relative rounded bg-gray-200 dark:bg-gray-400">
+    <div
+      className={clsx("relative h-6 bg-gray-200 dark:bg-gray-400", {
+        "rounded-full": rounded === "full",
+        rounded: rounded === "normal",
+      })}
+      {...rest}
+    >
       <svg
-        className="h-6 text-white dark:text-gray-200"
+        className="h-full text-white dark:text-gray-200"
         viewBox="0 0 320 320"
         xmlns="http://www.w3.org/2000/svg"
         fill="white"

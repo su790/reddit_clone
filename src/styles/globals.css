@@ -9,7 +9,7 @@
     @apply h-6 w-6 stroke-[1.3px];
   }
   .input {
-    @apply rounded-md border border-gray-300 bg-gray-100/50 p-2 text-base  text-gray-800 caret-gray-800 outline-none dark:text-gray-300;
+    @apply rounded-md border border-gray-300 bg-gray-100/50 p-2 text-sm text-gray-800 caret-gray-800 outline-none dark:text-gray-300;
   }
   .required {
     @apply relative after:absolute after:top-1  after:text-xs after:text-red-500 after:content-['*'];

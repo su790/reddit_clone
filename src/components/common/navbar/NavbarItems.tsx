@@ -4,7 +4,7 @@ import {
   IconMessageCircle,
   IconPlus,
   IconSpeakerphone,
-} from "@tabler/icons";
+} from "@tabler/icons-react";
 import Button from "../button/Button";
 import IconButton from "../button/IconButton";
 
