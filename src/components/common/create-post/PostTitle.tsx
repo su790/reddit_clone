@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import TextareaAutosize from "react-textarea-autosize";
 
 interface PostTitleProps {
@@ -7,19 +7,6 @@ interface PostTitleProps {
 }
 
 function PostTitle({ title, setTitle }: PostTitleProps) {
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const [height, setHeight] = useState<number | undefined>(32);
-  useEffect(() => {
-    console.log(textAreaRef.current?.scrollHeight);
-
-    if (textAreaRef.current) {
-      if (!title) {
-        textAreaRef.current.style.height = 40 + "px";
-      }
-      textAreaRef.current.style.height =
-        textAreaRef.current?.scrollHeight + "px";
-    }
-  }, [title]);
   return (
     <div className="input relative p-1 focus-within:border-neutral-900">
       <TextareaAutosize

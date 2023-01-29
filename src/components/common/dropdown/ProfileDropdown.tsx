@@ -1,24 +1,22 @@
-import { Fragment, useEffect, useState } from "react";
+import { useThemeStore } from "@/src/stores/useThemeStore";
 import { Menu, Transition } from "@headlessui/react";
-import DropdownBtn from "./DropdownBtn";
 import {
   IconChevronDown,
   IconEye,
   IconFlower,
   IconLogout,
   IconUserCircle,
-  TablerIcon,
 } from "@tabler/icons";
-import DefaultAvatar from "../navbar/DefaultAvatar";
-import SwitchBtn from "../button/Switch";
-import DropdownItem from "./DropdownItem";
+import { type Session } from "next-auth";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
-import { useThemeStore } from "@/src/stores/useThemeStore";
-import { signOut, useSession } from "next-auth/react";
-import { useUserStore } from "@/src/stores/useUserStore";
+import { Fragment, useEffect, useState } from "react";
+import SwitchBtn from "../button/Switch";
+import DefaultAvatar from "../navbar/DefaultAvatar";
+import DropdownBtn from "./DropdownBtn";
+import DropdownItem from "./DropdownItem";
 
-function ProfileDropdown() {
-  const { data: session } = useSession();
+function ProfileDropdown({ userData }: { userData: Session | null }) {
   const { currentTheme, setTheme } = useThemeStore((state) => state);
   const [themeSwitchEnabled, setThemeSwitchEnabled] = useState(
     currentTheme === "dark"
@@ -37,7 +35,7 @@ function ProfileDropdown() {
         <DropdownBtn className="gap-2">
           <DefaultAvatar isOnline={true} />
           <div className="mr-6 hidden flex-col md:flex">
-            <h4 className="heading-text">{session?.user?.name}</h4>
+            <h4 className="heading-text">{userData?.user?.name}</h4>
             <div className="flex items-center">
               <IconFlower className="icon h-3 w-3 text-primary-700 dark:text-primary-600" />
               <span className="heading-text text-gray-700 dark:text-gray-400">

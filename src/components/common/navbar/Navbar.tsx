@@ -1,14 +1,11 @@
-import React from "react";
-import Logo from "./Logo";
+import { type Session } from "next-auth";
+import { signIn } from "next-auth/react";
+import Button from "../button/Button";
 import ProfileDropdown from "../dropdown/ProfileDropdown";
 import SearchBox from "../form/SearchBox";
+import Logo from "./Logo";
 import NavbarItems from "./NavbarItems";
-import { signIn, useSession } from "next-auth/react";
-import Button from "../button/Button";
-import { Icon123 } from "@tabler/icons";
-import { useUserStore } from "@/src/stores/useUserStore";
-function Navbar() {
-  const { data: session } = useSession();
+function Navbar({ userData }: { userData: Session | null }) {
   return (
     <>
       <div className="apply-bg apply-border flex items-center justify-between border-b  p-2 ">
@@ -20,8 +17,8 @@ function Navbar() {
           <div className="ml-auto mr-4">
             <NavbarItems />
           </div>
-          {session ? (
-            <ProfileDropdown />
+          {userData ? (
+            <ProfileDropdown userData={userData} />
           ) : (
             <Button
               intent={"secondary"}
