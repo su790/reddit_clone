@@ -3,6 +3,7 @@ import Card from "../components/common/card/Card";
 import MiniCreatePostBox from "../components/common/create-post/MiniCreatePostBox";
 import HomePageNav from "../components/common/navbar/HomePageNav";
 import GridLayout from "../components/layouts/GridLayout";
+import { postDatas } from "../data/PostData";
 
 function HomePage() {
   return (
@@ -16,7 +17,9 @@ function HomePage() {
         <div className="col-span-3 flex max-w-6xl flex-col gap-3 py-8 lg:col-span-2">
           <MiniCreatePostBox />
           <HomePageNav />
-          <Card />
+          {postDatas.map((item) => {
+            return <Card key={item.postId} {...item} />;
+          })}
         </div>
         <div className="hidden h-full lg:block">ramu</div>
       </GridLayout>

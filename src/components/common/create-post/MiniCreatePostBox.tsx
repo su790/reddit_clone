@@ -1,7 +1,7 @@
 import { IconLink, IconPhoto } from "@tabler/icons-react";
 import React from "react";
 import IconButton from "../button/IconButton";
-import DefaultAvatar from "../navbar/DefaultAvatar";
+import DefaultAvatar from "../icons/DefaultAvatar";
 
 function MiniCreatePostBox() {
   return (

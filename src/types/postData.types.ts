@@ -8,10 +8,12 @@ export interface PostUser {
 export interface PostData {
   postId: string;
   postCommunity: string;
-  postedBy: string;
+  postedBy: PostUser;
   created_at: string;
   postTitle: string;
   postImage: string;
   upVotes: string[]; // arrays of userId who have upvoted
   downVotes: string[]; // arrays of userId who have downvoted
+  comments: number;
 }
+export type PostDatas = PostData[];

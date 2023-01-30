@@ -10,7 +10,7 @@ import { type Session } from "next-auth";
 import { Fragment, useEffect, useState } from "react";
 import SwitchBtn from "../button/Switch";
 import SearchBox from "../form/SearchBox";
-import DefaultAvatar from "../navbar/DefaultAvatar";
+import DefaultAvatar from "../icons/DefaultAvatar";
 import DropdownBtn from "./DropdownBtn";
 import DropdownItem from "./DropdownItem";
 
