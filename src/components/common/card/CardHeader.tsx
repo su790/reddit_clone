@@ -17,14 +17,21 @@ function CardHeader({
   username,
 }: CardHeaderProps) {
   return (
-    <div className="flex flex-col gap-1 p-2">
+    <div className="flex flex-col gap-1 border-b p-2">
       <div className="flex items-center gap-1">
         <UserAvatar src={avatar} />
-        <Link href={postCommunity}>
-          <h3 className="heading-text font-semibold hover:underline">
-            {postCommunity}
-          </h3>
-        </Link>
+        <div className="flex flex-col gap-1">
+          <Link href={postCommunity}>
+            <h3 className="heading-text font-semibold hover:underline">
+              {postCommunity}
+            </h3>
+            <span className="block text-[10px] text-gray-600 sm:hidden">
+              {formatDistance(new Date(created_at), new Date(), {
+                addSuffix: true,
+              })}
+            </span>
+          </Link>
+        </div>
         <span className="h-[3px] w-[3px] rounded-full  bg-neutral-400"></span>
         <p className="text-[10px] text-gray-600">
           Posted by{" "}
@@ -32,10 +39,8 @@ function CardHeader({
             {" "}
             <span className="hover:underline">{username}</span>{" "}
           </Link>
-          <span>
-            {formatDistance(new Date(created_at), new Date(), {
-              addSuffix: true,
-            })}
+          <span className="hidden sm:inline">
+            {formatDistance(new Date(created_at), new Date())}
           </span>
         </p>
       </div>

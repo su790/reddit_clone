@@ -29,8 +29,8 @@ export default function MainPostBox() {
             );
           }}
         </Tab.List>
-        <Tab.Panels className="mt-2 px-4 py-2">
-          <Tab.Panel>
+        <Tab.Panels className="mt-2 h-full px-4 py-2">
+          <Tab.Panel className={"flex h-full"}>
             <PostPanel />
           </Tab.Panel>
           <Tab.Panel>Post image and video here</Tab.Panel>

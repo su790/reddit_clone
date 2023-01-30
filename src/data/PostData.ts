@@ -1,4 +1,4 @@
-import { PostDatas, type PostData } from "../types/postData.types";
+import { type PostDatas } from "../types/postData.types";
 
 export const postDatas: PostDatas = [
   {
@@ -16,9 +16,11 @@ export const postDatas: PostDatas = [
     postId: "id1",
     postTitle:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the ",
-    postImage:
-      "https://images.pexels.com/photos/11006505/pexels-photo-11006505.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+
     comments: 34,
+    postText:
+      "<h1>sad</h1><h3>This is amazing</h3><p>Here are some further details:</p><ul><li>Hungry</li><li>Always happy</li><li>I am professional</li><li>Little too much professional</li></ul>",
+    postType: "text",
   },
   {
     postCommunity: "r/Programming",
@@ -34,9 +36,12 @@ export const postDatas: PostDatas = [
     upVotes: ["hari", "bikrant", "manu", "tamu"],
     postId: "id2",
     postTitle: "Check out my new laptop.. How is it?",
-    postImage:
+    postImage: [
       "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600",
+      "https://images.pexels.com/photos/13315198/pexels-photo-13315198.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    ],
     comments: 21,
+    postType: "image",
   },
   {
     postCommunity: "r/Memes",
@@ -52,8 +57,10 @@ export const postDatas: PostDatas = [
     upVotes: ["hari", "ramu", "shyamu", "manu", "tamu"],
     postId: "id3",
     postTitle: "This seems hilarious",
-    postImage:
-      "https://images.pexels.com/photos/6633058/pexels-photo-6633058.jpeg?auto=compress&cs=tinysrgb&w=600",
+    postLink: "https://www.w3schools.com/cssref/css3_pr_mask-image.php",
+    postVideo:
+      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
     comments: 112,
+    postType: "link",
   },
 ];

@@ -1,3 +1,4 @@
+@import "../../node_modules/react-responsive-carousel/lib/styles/carousel.min.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,10 +25,16 @@
     @apply text-xs font-medium text-gray-800 dark:text-gray-300;
   }
   .link {
-    @apply text-secondary-600;
+    @apply text-secondary-600 hover:underline;
   }
   .focusable {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-400/70;
+  }
+  .carousel-container {
+    display: none;
+  }
+  .mask-image {
+    mask-image: linear-gradient(180deg, #000 60%, transparent);
   }
 }
 

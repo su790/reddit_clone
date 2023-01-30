@@ -4,13 +4,24 @@ interface IconButtonProps {
   title: string;
   children: React.ReactNode;
   href?: string;
+  className?: string;
+  onClick?: () => void;
 }
-function IconButton({ children, title, href }: IconButtonProps) {
+function IconButton({
+  children,
+  title,
+  href,
+  className,
+  onClick,
+}: IconButtonProps) {
   if (href)
     return (
       <Link href={href}>
         <div
-          className="p-1 hover:bg-neutral-200 dark:hover:bg-neutral-800"
+          onClick={onClick}
+          className={`p-1 hover:bg-neutral-200 dark:hover:bg-neutral-800 ${
+            className || ""
+          }`}
           title={title}
         >
           {children}
@@ -19,8 +30,11 @@ function IconButton({ children, title, href }: IconButtonProps) {
     );
   return (
     <button
+      onClick={onClick}
       type="button"
-      className="p-1 hover:bg-neutral-200 dark:hover:bg-neutral-800"
+      className={`p-1 hover:bg-neutral-200 dark:hover:bg-neutral-800 ${
+        className || ""
+      }`}
       title={title}
     >
       {children}
