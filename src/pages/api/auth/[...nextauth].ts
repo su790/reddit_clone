@@ -10,9 +10,22 @@ import CustomUsername from "@/src/helpers/createUsername";
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
   callbacks: {
-    session({ session, user }) {
+    async session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
+        const profile = await prisma.profile.findUnique({
+          where: {
+            email: session.user.email!,
+          },
+        });
+        // 👇👇👇👇 getting profile data in session callback
+        session.user.profile.username = profile?.username!;
+        session.user.profile.email = profile?.email!;
+        session.user.profile.avatar = profile?.avatar!;
+        session.user.profile.display_name = profile?.display_name!;
+        session.user.profile.banner_image = profile?.banner_image!;
+        session.user.profile.profile_visibility = profile?.profile_visibility!;
+        session.user.profile.about = profile?.about!;
       }
       return session;
     },
