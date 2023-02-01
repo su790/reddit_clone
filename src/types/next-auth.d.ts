@@ -3,12 +3,12 @@ import { type DefaultSession } from "next-auth";
 interface Profile {
   username: string;
   email: string;
-  avatar?: string;
-  display_name?: string;
-  banner_image?: string;
+  avatar?: string | null;
+  display_name?: string | null;
+  banner_image?: string | null;
   allow_follow: boolean;
   profile_visibility: boolean;
-  about?: string;
+  about?: string | null;
 }
 declare module "next-auth" {
   /**

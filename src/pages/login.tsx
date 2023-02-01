@@ -3,7 +3,7 @@ import React from "react";
 
 function Login() {
   const { data: sessionData } = useSession();
-  console.log("Session data from login page", sessionData);
+  console.log("Session data from login page", sessionData?.user?.id);
   return (
     <div>
       <button

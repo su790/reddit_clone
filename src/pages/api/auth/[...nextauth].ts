@@ -13,21 +13,34 @@ export const authOptions: NextAuthOptions = {
     async session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
-        const profile = await prisma.profile.findUnique({
-          where: {
-            email: session.user.email!,
-          },
-        });
+        var profile;
+        try {
+          profile = await prisma.profile.findUnique({
+            where: {
+              email: session.user.email!,
+            },
+          });
+        } catch (err) {
+          console.log(err);
+        }
+        console.log(profile);
+        console.log(profile?.username);
+
         // 👇👇👇👇 getting profile data in session callback
-        session.user.profile.username = profile?.username!;
-        session.user.profile.email = profile?.email!;
-        session.user.profile.avatar = profile?.avatar!;
-        session.user.profile.display_name = profile?.display_name!;
-        session.user.profile.banner_image = profile?.banner_image!;
-        session.user.profile.profile_visibility = profile?.profile_visibility!;
-        session.user.profile.about = profile?.about!;
+        if (profile) {
+          session.user.profile.username = profile.username;
+          session.user.profile.email = profile.email;
+          session.user.profile.avatar = profile.avatar;
+          session.user.profile.display_name = profile.display_name;
+          session.user.profile.banner_image = profile.banner_image;
+          session.user.profile.profile_visibility = profile.profile_visibility;
+          session.user.profile.about = profile.about;
+        } else {
+          console.log("Huge error ");
+        }
       }
-      return session;
+      console.log(session);
+      return Promise.resolve(session);
     },
   },
   // Configure one or more authentication providers
