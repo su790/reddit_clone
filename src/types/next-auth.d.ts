@@ -1,5 +1,4 @@
 import { type DefaultSession } from "next-auth";
-
 interface Profile {
   username: string;
   email: string;

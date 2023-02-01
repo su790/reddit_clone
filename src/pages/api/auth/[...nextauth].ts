@@ -13,30 +13,33 @@ export const authOptions: NextAuthOptions = {
     async session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
-        var profile;
-        try {
-          profile = await prisma.profile.findUnique({
-            where: {
-              email: session.user.email!,
-            },
-          });
-        } catch (err) {
-          console.log(err);
-        }
-        console.log(profile);
-        console.log(profile?.username);
+        if (session.user?.email) {
+          try {
+            const profile = await prisma.profile.findUnique({
+              where: {
+                userId: session.user.email,
+              },
+            });
+            console.log(profile);
+            console.log(profile?.username);
 
-        // 👇👇👇👇 getting profile data in session callback
-        if (profile) {
-          session.user.profile.username = profile.username;
-          session.user.profile.email = profile.email;
-          session.user.profile.avatar = profile.avatar;
-          session.user.profile.display_name = profile.display_name;
-          session.user.profile.banner_image = profile.banner_image;
-          session.user.profile.profile_visibility = profile.profile_visibility;
-          session.user.profile.about = profile.about;
-        } else {
-          console.log("Huge error ");
+            // 👇👇👇👇 getting profile data in session callback
+            if (profile) {
+              session.user.profile = profile;
+              // session.user.profile.username = profile.username;
+              // session.user.profile.email = profile.email;
+              // session.user.profile.avatar = profile.avatar;
+              // session.user.profile.display_name = profile.display_name;
+              // session.user.profile.banner_image = profile.banner_image;
+              // session.user.profile.profile_visibility =
+              //   profile.profile_visibility;
+              // session.user.profile.about = profile.about;
+            } else {
+              console.log("Huge error ");
+            }
+          } catch (err) {
+            console.log(err);
+          }
         }
       }
       console.log(session);
@@ -71,7 +74,7 @@ export const authOptions: NextAuthOptions = {
       if (message.isNewUser === true) {
         await prisma.profile.create({
           data: {
-            userId: message.user.id!,
+            userId: message.user.id,
             username: await CustomUsername(message.user.email!),
             email: message.user.email!,
           },
