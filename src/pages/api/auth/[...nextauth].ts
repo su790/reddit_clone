@@ -13,15 +13,13 @@ export const authOptions: NextAuthOptions = {
     async session({ session, user }) {
       if (session.user) {
         session.user.id = user.id;
-        if (session.user?.email) {
+        if (session.user.email) {
           try {
             const profile = await prisma.profile.findUnique({
               where: {
-                userId: session.user.email,
+                email: session.user.email,
               },
             });
-            console.log(profile);
-            console.log(profile?.username);
 
             // 👇👇👇👇 getting profile data in session callback
             if (profile) {

@@ -23,7 +23,6 @@ function HomePage() {
         </div>
         <div className="hidden h-full lg:block">ramu</div>
       </GridLayout>
-      
     </>
   );
 }
