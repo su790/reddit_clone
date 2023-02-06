@@ -21,8 +21,6 @@ export const authOptions: NextAuthOptions = {
                 email: session.user.email,
               },
             });
-            console.log(profile);
-            console.log(profile?.username);
 
             // 👇👇👇👇 getting profile data in session callback
             if (profile) {
