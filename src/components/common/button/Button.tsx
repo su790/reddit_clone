@@ -23,7 +23,6 @@ const Button = ({
   loading,
   loadingText,
   variant,
-
   ...rest
 }: ButtonProps) => {
   return (
@@ -59,7 +58,11 @@ const Button = ({
               mask="url(#path-1-inside-1_56_7)"
             />
           </svg>
-          {loadingText && <p className="color-inherit">{loadingText}</p>}
+          {loadingText ? (
+            <p className="color-inherit">{loadingText}</p>
+          ) : (
+            <>{children}</>
+          )}
         </>
       ) : (
         <>{children}</>

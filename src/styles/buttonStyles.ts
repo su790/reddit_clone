@@ -9,7 +9,7 @@ export const buttonStyles = cva(
         secondary:
           "bg-secondary-700  text-gray-200 hover:bg-secondary-600 disabled:hover:bg-secondary-700",
         neutral:
-          "bg-neutral-200 text-gray-700  hover:bg-neutral-300/90 disabled:hover-bg-neutral-200 dark:bg-transparent dark:text-gray-400",
+          "bg-neutral-200/50 text-gray-700  hover:bg-neutral-300/90 disabled:hover-bg-neutral-200 dark:bg-transparent dark:text-gray-400",
       },
       variant: {
         ghost: "bg-transparent dark:bg-transparent shadow-none border",
