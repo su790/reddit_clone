@@ -6,6 +6,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { env } from "../../../env/server.mjs";
 import { prisma } from "../../../server/db";
 import CustomUsername from "@/src/helpers/createUsername";
+import { use } from "react";
 
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
@@ -24,14 +25,6 @@ export const authOptions: NextAuthOptions = {
             // 👇👇👇👇 getting profile data in session callback
             if (profile) {
               session.user.profile = profile;
-              // session.user.profile.username = profile.username;
-              // session.user.profile.email = profile.email;
-              // session.user.profile.avatar = profile.avatar;
-              // session.user.profile.display_name = profile.display_name;
-              // session.user.profile.banner_image = profile.banner_image;
-              // session.user.profile.profile_visibility =
-              //   profile.profile_visibility;
-              // session.user.profile.about = profile.about;
             } else {
               console.log("Huge error ");
             }

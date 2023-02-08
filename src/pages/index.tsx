@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Card from "../components/common/card/Card";
+import ChooseTopicBox from "../components/common/choose-topics/ChooseTopicBox";
 import MiniCreatePostBox from "../components/common/create-post/MiniCreatePostBox";
 import HomePageNav from "../components/common/navbar/HomePageNav";
 import GridLayout from "../components/layouts/GridLayout";
@@ -16,6 +17,7 @@ function HomePage() {
       <GridLayout>
         <div className="col-span-3 flex max-w-6xl flex-col gap-3 py-8 lg:col-span-2">
           <MiniCreatePostBox />
+          <ChooseTopicBox />
           <HomePageNav />
           {postDatas.map((item) => {
             return <Card key={item.postId} {...item} />;
